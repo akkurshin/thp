@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+    <title>Мероприятие | Мастер-классы / Баттлы</title>
+    <!-- Подключаем шрифты: Unbounded для заголовков, Nunito Sans для всего остального -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&family=Unbounded:wght@200..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">    
+</head>
+<body>
+  <div class="site-wrapper">
+    <!-- ЗАСТАВКА -->
+    <div class="splash-screen">
+        <img src="лого.png" alt="Логотип мероприятия" class="splash-logo">
+    </div>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <div class="main-content">
+      <header class="header">
+        <img src="лого.png" alt="Логотип мероприятия" class="small-logo">
+        <h1> | МАЙ 2026</h1>
+      </header>
+
+      <div class="tabs-row">
+        <button class="tab-btn active" id="btnMk">23.05.2026<br>Мастер-классы</button>
+        <button class="tab-btn" id="btnBattle">24.05.2026<br>Баттлы</button>
+      </div>
+
+      <div class="content-slider">
+        <div class="slide-panel" id="slidePanel">
+          <!-- Панель 1: Мастер-классы -->
+          <div class="panel-item" id="panel1">
+            <div class="place">Москва, DI Telegraph, зал «Фиолет»</div>
+            <div class="teachers">
+              <h3>👥 Преподаватели</h3>
+              <ul>
+                <li>Анна Рыжая — хореограф (modern)</li>
+                <li>Марк Вайнштейн — импровизация</li>
+                <li>Екатерина Дождь — контактная импровизация</li>
+              </ul>
+            </div>
+            <div class="schedule">
+              <h3>📅 Расписание (23 мая)</h3>
+              <ul>
+                <li><span class="time">11:00–13:00</span> Мастер-класс «Основы»</li>
+                <li><span class="time">14:00–16:00</span> Продвинутая техника</li>
+                <li><span class="time">16:30–18:30</span> Джем-сессия</li>
+              </ul>
+            </div>
+          </div>
+          <!-- Панель 2: Баттлы -->
+          <div class="panel-item" id="panel2">
+            <div class="place">Санкт-Петербург, Площадь Искусств, лофт «Огонь»</div>
+            <div class="team">
+              <h3>⚡ Команда баттлов</h3>
+              <ul>
+                <li>DJ Gradient — главный судья</li>
+                <li>Мария Цой — ведущая / хостесс</li>
+                <li>Alex "Spark" — битмейкер</li>
+                <li>Жюри: Лев Пирогов, Карина Фрост</li>
+              </ul>
+            </div>
+            <div class="schedule">
+              <h3>📅 Расписание (24 мая)</h3>
+              <ul>
+                <li><span class="time">12:00–14:00</span> Отборочные (1×1)</li>
+                <li><span class="time">15:00–17:00</span> Командные баттлы</li>
+                <li><span class="time">18:00–20:00</span> Финалы + показательные</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ФИКСИРОВАННАЯ КНОПКА "ХОЧУ УЧАСТВОВАТЬ" -->
+    <div class="fixed-bottom-btn">
+      <button class="gradient-btn">ХОЧУ УЧАСТВОВАТЬ</button>
+    </div>
+  </div>
+
+<script src = "script.js"></script>
+</body>
+</html>
