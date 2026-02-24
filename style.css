@@ -82,7 +82,7 @@ h1, h2, h3, h4 {
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 1.8rem 2rem 6rem;
+    padding: 1.8rem 2rem 2rem;
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
@@ -378,6 +378,97 @@ h1, h2, h3, h4 {
     font-family: "Unbounded", sans-serif;
 }
 
+/* Стили для блока стоимости участия */
+.price-info {
+    margin: 30px 0 20px;
+    padding: 25px;
+    background: linear-gradient(145deg, rgba(30, 30, 46, 0.8), rgba(20, 20, 35, 0.9));
+    border: 1px solid rgba(148, 84, 191, 0.3);
+    border-radius: 24px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+}
+
+.price-info h3 {
+    font-family: "Unbounded", sans-serif;
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+    color: var(--color-soft-purple);
+    text-shadow: 0 2px 10px rgba(148, 84, 191, 0.3);
+    position: relative;
+    display: inline-block;
+}
+
+.price-info h3::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 60px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-soft-purple), var(--color-red));
+    border-radius: 4px;
+}
+
+.price-card {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.price-item {
+    display: flex;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px dashed rgba(148, 84, 191, 0.2);
+}
+
+.price-item:last-child {
+    border-bottom: none;
+}
+
+.price-badge {
+    font-family: "Unbounded", sans-serif;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--color-red);
+    background: rgba(217, 30, 65, 0.1);
+    padding: 5px 15px;
+    border-radius: 50px;
+    border: 1px solid rgba(217, 30, 65, 0.3);
+}
+
+.price-name {
+    font-size: 1.3rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    flex: 1;
+}
+
+.price-value {
+    font-family: "Unbounded", sans-serif;
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-soft-purple);
+    text-shadow: 0 2px 10px rgba(148, 84, 191, 0.3);
+}
+
+.price-note {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    padding: 15px 0 5px;
+    font-style: italic;
+}
+
+.price-note strong {
+    color: var(--color-red);
+    font-weight: 600;
+}
+
 .team {
     margin: 30px 0;
 }
@@ -583,6 +674,112 @@ h1, h2, h3, h4 {
     to { transform: rotate(0deg); }
 }
 
+/* Стили для футера */
+.site-footer {
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 30px 2rem 100px;
+    background: rgba(0, 0, 0, 0.3);
+    border-top: 1px solid rgba(148, 84, 191, 0.2);
+    width: 100%;
+}
+
+.footer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+}
+
+.public-docs {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    justify-content: center;
+}
+
+.footer-link {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 1rem;
+    font-family: "Unbounded", sans-serif;
+    transition: all 0.3s ease;
+    position: relative;
+    padding: 5px 0;
+}
+
+.footer-link:hover {
+    color: var(--color-soft-purple);
+    text-decoration: underline;
+}
+
+.footer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-copyright {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
+.footer-ip {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    font-family: "Unbounded", sans-serif;
+    font-weight: 300;
+}
+
+.footer-inn {
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    opacity: 0.7;
+    font-family: monospace;
+}
+
+.footer-telegram {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(148, 84, 191, 0.1);
+    border: 1px solid rgba(148, 84, 191, 0.3);
+    border-radius: 50px;
+    padding: 8px 20px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    color: var(--text-primary);
+
+}
+
+.footer-telegram:hover {
+    background: rgba(148, 84, 191, 0.2);
+    border-color: var(--color-soft-purple);
+    transform: translateY(-2px);
+}
+
+.footer-telegram-icon {
+    font-size: 1.3rem;
+}
+
+.footer-telegram-text {
+    font-family: "Unbounded", sans-serif;
+    font-size: 0.9rem;
+}
+
 .fixed-bottom-btn {
     position: fixed;
     bottom: 30px;
@@ -591,13 +788,22 @@ h1, h2, h3, h4 {
     width: 100%;
     display: flex;
     justify-content: center;
+    align-items: center;
     pointer-events: none;
     z-index: 100;
 }
 
+.gradient-btn-link {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    width: min(70%, 700px);
+    pointer-events: auto;
+}
+
 .gradient-btn {
     pointer-events: auto;
-    width: min(70%, 700px);
+    width: 100%; /* Изменено с min(70%, 700px) на 100% */
     background: linear-gradient(145deg, var(--color-deep-purple), var(--color-red), var(--color-orange));
     background-size: 200% 200%;
     border: none;
@@ -623,6 +829,18 @@ h1, h2, h3, h4 {
     box-shadow: 0 20px 40px -5px rgba(0,0,0,0.6), 0 0 30px rgba(217,30,65,0.6);
 }
 
+
+.gradient-btn-link {
+    text-decoration: none;
+    display: inline-block;
+    pointer-events: auto;
+    width: min(70%, 700px);
+}
+
+.gradient-btn-link:hover {
+    text-decoration: none;
+}
+
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
@@ -634,7 +852,7 @@ h1, h2, h3, h4 {
 /* Планшеты и небольшие десктопы (до 1024px) */
 @media (max-width: 1024px) {
     .main-content {
-        padding: 1.5rem 1.5rem 6rem;
+        padding: 1.5rem 1.5rem 2rem;
         max-width: 100%;
     }
     
@@ -662,7 +880,7 @@ h1, h2, h3, h4 {
 /* Современные мобильные устройства (iPhone 14-17 Pro/Pro Max, Android флагманы) */
 @media (max-width: 932px) {
     .main-content {
-        padding: 1.2rem 1rem 7rem;
+        padding: 1.2rem 1rem 2rem;
     }
     
     .header {
@@ -783,6 +1001,34 @@ h1, h2, h3, h4 {
         font-size: 0.8rem;
     }
     
+    /* Адаптация блока стоимости */
+    .price-info {
+        padding: 20px;
+        margin: 25px 0 15px;
+    }
+    
+    .price-info h3 {
+        font-size: 1.5rem;
+    }
+    
+    .price-badge {
+        font-size: 1rem;
+        padding: 4px 12px;
+    }
+    
+    .price-name {
+        font-size: 1.1rem;
+    }
+    
+    .price-value {
+        font-size: 1.4rem;
+    }
+    
+    .price-note {
+        font-size: 0.9rem;
+        padding: 10px 0 0;
+    }
+    
     .team h3 {
         font-size: 1.4rem;
         margin: 20px 0 16px;
@@ -850,6 +1096,20 @@ h1, h2, h3, h4 {
         padding: 20px 10px;
     }
     
+    /* Адаптация футера */
+    .site-footer {
+        padding: 25px 1rem 90px;
+    }
+    
+    .footer-links {
+        gap: 20px;
+        flex-direction: column;
+    }
+    
+    .footer-info {
+        gap: 5px;
+    }
+    
     .gradient-btn {
         width: 85%;
         font-size: 1.2rem;
@@ -861,7 +1121,7 @@ h1, h2, h3, h4 {
 /* iPhone 14/15/16/17 Pro и подобные (390px ширина) */
 @media (max-width: 430px) {
     .main-content {
-        padding: 1rem 0.8rem 7rem;
+        padding: 1rem 0.8rem 2rem;
     }
     
     .small-logo {
@@ -924,6 +1184,29 @@ h1, h2, h3, h4 {
         padding-left: 32px;
     }
     
+    /* Адаптация блока стоимости */
+    .price-info h3 {
+        font-size: 1.3rem;
+    }
+    
+    .price-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 5px;
+    }
+    
+    .price-badge {
+        font-size: 0.9rem;
+    }
+    
+    .price-name {
+        font-size: 1rem;
+    }
+    
+    .price-value {
+        font-size: 1.3rem;
+    }
+    
     .team h3 {
         font-size: 1.3rem;
     }
@@ -969,12 +1252,35 @@ h1, h2, h3, h4 {
         padding: 14px 18px;
         width: 90%;
     }
+    
+    /* Адаптация футера */
+    .site-footer {
+        padding: 20px 0.8rem 80px;
+    }
+    
+    .footer-link {
+        font-size: 0.9rem;
+    }
+    
+    .footer-copyright,
+    .footer-ip,
+    .footer-inn {
+        font-size: 0.8rem;
+    }
+    
+    .footer-telegram {
+        padding: 6px 16px;
+    }
+    
+    .footer-telegram-text {
+        font-size: 0.8rem;
+    }
 }
 
 /* iPhone Pro Max и большие Android (430px ширина) */
 @media (min-width: 431px) and (max-width: 480px) {
     .main-content {
-        padding: 1.2rem 1rem 7rem;
+        padding: 1.2rem 1rem 2rem;
     }
     
     .carousel-item {
@@ -1002,7 +1308,7 @@ h1, h2, h3, h4 {
 /* Очень маленькие устройства (до 360px) */
 @media (max-width: 360px) {
     .main-content {
-        padding: 0.8rem 0.6rem 7rem;
+        padding: 0.8rem 0.6rem 2rem;
     }
     
     .small-logo {
@@ -1051,6 +1357,27 @@ h1, h2, h3, h4 {
         font-size: 1.3rem;
     }
     
+    .price-info h3 {
+        font-size: 1.2rem;
+    }
+    
+    .price-badge {
+        font-size: 0.8rem;
+        padding: 3px 10px;
+    }
+    
+    .price-name {
+        font-size: 0.9rem;
+    }
+    
+    .price-value {
+        font-size: 1.2rem;
+    }
+    
+    .price-note {
+        font-size: 0.8rem;
+    }
+    
     .team h3 {
         font-size: 1.2rem;
     }
@@ -1085,12 +1412,22 @@ h1, h2, h3, h4 {
         font-size: 1rem;
         padding: 12px 16px;
     }
+    
+    .footer-link {
+        font-size: 0.8rem;
+    }
+    
+    .footer-copyright,
+    .footer-ip,
+    .footer-inn {
+        font-size: 0.7rem;
+    }
 }
 
 /* Горизонтальная ориентация на мобильных */
 @media (max-height: 500px) and (orientation: landscape) {
     .main-content {
-        padding: 0.8rem 0.8rem 5rem;
+        padding: 0.8rem 0.8rem 2rem;
     }
     
     .carousel-container {
@@ -1128,5 +1465,9 @@ h1, h2, h3, h4 {
     .gradient-btn {
         padding: 12px 18px;
         font-size: 1.1rem;
+    }
+    
+    .site-footer {
+        padding: 20px 1rem 70px;
     }
 }
