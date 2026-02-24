@@ -200,6 +200,7 @@ h1, h2, h3, h4 {
     gap: 20px;
     margin-bottom: 25px;
     min-height: 50vh;
+    height: 50vh;
 }
 
 .carousel-item {
@@ -518,8 +519,6 @@ h1, h2, h3, h4 {
     font-size: 1.2rem;
 }
 
-/* ========= ИСПРАВЛЕННЫЙ КОД ДЛЯ КАРТОЧЕК РАСПИСАНИЯ ========= */
-
 .schedule {
     margin-top: 30px;
 }
@@ -576,9 +575,6 @@ h1, h2, h3, h4 {
     gap: 30px;
     padding: 20px 25px;
     width: 100%;
-    background: inherit;
-    position: relative;
-    z-index: 2;
 }
 
 .schedule li.expanded .schedule-card {
@@ -623,11 +619,10 @@ h1, h2, h3, h4 {
     font-size: 1.5rem;
     color: var(--color-red);
     opacity: 0.5;
-    transition: transform 0.3s ease, opacity 0.2s ease;
+    transition: all 0.3s ease;
     width: 30px;
     text-align: center;
     flex-shrink: 0;
-    display: inline-block;
 }
 
 .schedule li:hover .expand-icon {
@@ -641,43 +636,23 @@ h1, h2, h3, h4 {
 
 .event-description {
     max-height: 0;
-    opacity: 0;
     overflow: hidden;
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-                opacity 0.3s ease 0.1s,
-                padding 0.3s ease;
+    transition: max-height 0.5s ease, padding 0.3s ease;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 0 0 20px 20px;
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--text-secondary);
-    padding: 0 25px;
-    will-change: max-height, opacity;
-    transform: translateZ(0);
-    backface-visibility: hidden;
 }
 
 .schedule li.expanded .event-description {
-    max-height: 300px;
-    opacity: 1;
+    max-height: 200px;
     padding: 20px 25px;
-}
-
-/* Анимация для плавного поворота иконки */
-@keyframes rotateIcon {
-    from { transform: rotate(0deg); }
-    to { transform: rotate(180deg); }
-}
-
-@keyframes rotateIconBack {
-    from { transform: rotate(180deg); }
-    to { transform: rotate(0deg); }
 }
 
 /* Стили для футера */
 .site-footer {
-    margin-top: 10px;
-    margin-bottom: 30px;
+    margin-top: 30px;
     padding: 30px 2rem 100px;
     background: rgba(0, 0, 0, 0.3);
     border-top: 1px solid rgba(148, 84, 191, 0.2);
@@ -695,16 +670,16 @@ h1, h2, h3, h4 {
 .footer-links {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: column;
     gap: 15px;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .public-docs {
     display: flex;
-    align-items: center;
-    gap: 30px;
+    gap: 20px;
+    flex-wrap: wrap;
     justify-content: center;
 }
 
@@ -762,7 +737,7 @@ h1, h2, h3, h4 {
     transition: all 0.3s ease;
     text-decoration: none;
     color: var(--text-primary);
-
+    margin-top: 5px;
 }
 
 .footer-telegram:hover {
@@ -773,6 +748,7 @@ h1, h2, h3, h4 {
 
 .footer-telegram-icon {
     font-size: 1.3rem;
+    color: #0088cc;
 }
 
 .footer-telegram-text {
@@ -788,7 +764,6 @@ h1, h2, h3, h4 {
     width: 100%;
     display: flex;
     justify-content: center;
-    align-items: center;
     pointer-events: none;
     z-index: 100;
 }
@@ -803,7 +778,7 @@ h1, h2, h3, h4 {
 
 .gradient-btn {
     pointer-events: auto;
-    width: 100%; /* Изменено с min(70%, 700px) на 100% */
+    width: 100%;
     background: linear-gradient(145deg, var(--color-deep-purple), var(--color-red), var(--color-orange));
     background-size: 200% 200%;
     border: none;
@@ -829,364 +804,86 @@ h1, h2, h3, h4 {
     box-shadow: 0 20px 40px -5px rgba(0,0,0,0.6), 0 0 30px rgba(217,30,65,0.6);
 }
 
-
-.gradient-btn-link {
-    text-decoration: none;
-    display: inline-block;
-    pointer-events: auto;
-    width: min(70%, 700px);
-}
-
-.gradient-btn-link:hover {
-    text-decoration: none;
-}
-
 @keyframes gradientShift {
     0% { background-position: 0% 50%; }
     50% { background-position: 100% 50%; }
     100% { background-position: 0% 50%; }
 }
 
-/* ========= ПОЛНОСТЬЮ ПЕРЕРАБОТАННАЯ АДАПТАЦИЯ ПОД МОБИЛЬНЫЕ УСТРОЙСТВА ========= */
 
-/* Планшеты и небольшие десктопы (до 1024px) */
-@media (max-width: 1024px) {
-    .main-content {
-        padding: 1.5rem 1.5rem 2rem;
-        max-width: 100%;
-    }
-    
-    .carousel-item {
-        height: 40vh;
-    }
-    
-    .carousel-item.active {
-        height: 40vh;
-    }
-    
-    .carousel-item:not(.active) {
-        height: 25vh;
-    }
-    
-    .teacher-name {
-        font-size: 1.6rem;
-    }
-    
-    .teacher-bio {
-        font-size: 1rem;
-    }
-}
 
-/* Современные мобильные устройства (iPhone 14-17 Pro/Pro Max, Android флагманы) */
-@media (max-width: 932px) {
+@media (max-width: 680px) {
     .main-content {
-        padding: 1.2rem 1rem 2rem;
-    }
-    
-    .header {
-        gap: 10px;
-        margin-bottom: 20px;
-    }
-    
-    .small-logo {
-        height: 45px;
-    }
-    
-    .header h1 {
-        font-size: 1.3rem;
-    }
-    
-    .tabs-row {
-        gap: 12px;
-    }
-    
-    .tab-btn {
-        min-width: 160px;
-        width: 45%;
-        padding: 12px 16px;
-        font-size: 0.85rem;
-        min-height: 65px;
-    }
-    
-    .date {
-        font-size: 1.1rem;
+        padding: 1rem 1rem 2rem;
     }
     
     .panel-item {
-        padding: 1.5rem 1.2rem;
-    }
-    
-    .teachers-carousel {
-        margin-bottom: 20px;
-    }
-    
-    .carousel-container {
-        gap: 12px;
-        min-height: 280px;
+        padding: 1.8rem 1.5rem;
     }
     
     .carousel-item {
-        height: 220px;
-        border-width: 2px;
+        height: 40vh;
     }
     
     .carousel-item.active {
-        height: 220px;
-        border-width: 3px;
+        height: 40vh;
     }
     
     .carousel-item:not(.active) {
-        height: 150px;
-        border-width: 2px;
+        height: 30vh;
     }
     
-    .carousel-item img {
-        object-fit: cover;
-        height: 100%;
-        width: auto;
+    .carousel-container {
+        min-height: 240px;
+        gap: 12px;
     }
     
-    .teacher-info {
-        padding: 16px;
-        min-height: auto;
+    .gradient-btn {
+        font-size: 1.2rem;
+        padding: 16px 20px;
     }
     
     .teacher-name {
-        font-size: 1.5rem;
-        margin-bottom: 6px;
+        font-size: 1.3rem;
     }
     
     .teacher-role {
         font-size: 1.1rem;
-        margin-bottom: 12px;
-        padding-bottom: 8px;
     }
     
     .teacher-bio {
-        font-size: 0.95rem;
-        line-height: 1.5;
-    }
-    
-    .place {
-        flex-wrap: wrap;
-        margin-bottom: 20px;
-    }
-    
-    .place-venue {
-        font-size: 1.2rem;
-        padding-left: 35px;
-        width: 100%;
-    }
-    
-    .place-venue::before {
-        font-size: 1.5rem;
-    }
-    
-    .place-city {
-        font-size: 0.8rem;
-        width: 100%;
-        margin-bottom: 5px;
-    }
-    
-    .metro-badge {
-        margin-left: 0;
-        padding: 5px 15px 5px 10px;
-    }
-    
-    .metro-circle {
-        font-size: 1.1rem;
-    }
-    
-    .metro-station {
-        font-size: 0.8rem;
-    }
-    
-    /* Адаптация блока стоимости */
-    .price-info {
-        padding: 20px;
-        margin: 25px 0 15px;
-    }
-    
-    .price-info h3 {
-        font-size: 1.5rem;
-    }
-    
-    .price-badge {
         font-size: 1rem;
-        padding: 4px 12px;
-    }
-    
-    .price-name {
-        font-size: 1.1rem;
-    }
-    
-    .price-value {
-        font-size: 1.4rem;
-    }
-    
-    .price-note {
-        font-size: 0.9rem;
-        padding: 10px 0 0;
-    }
-    
-    .team h3 {
-        font-size: 1.4rem;
-        margin: 20px 0 16px;
-    }
-    
-    .team ul {
-        font-size: 1.2rem;
-    }
-    
-    .team li {
-        padding: 10px 0 10px 28px;
-        font-size: 1.1rem;
-    }
-    
-    .team li::before {
-        font-size: 1rem;
-    }
-    
-    .schedule h3 {
-        font-size: 1.5rem;
-        margin: 20px 0 16px;
     }
     
     .schedule-card {
-        padding: 16px 18px;
-        gap: 15px;
-        flex-wrap: wrap;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+        padding: 18px;
     }
     
     .time {
-        font-size: 1.2rem;
-        min-width: 100%;
-        width: 100%;
-        padding-left: 25px;
-        margin-bottom: 5px;
+        font-size: 1.3rem;
+        min-width: auto;
+        padding-left: 30px;
     }
     
     .event-title {
         font-size: 1.1rem;
-        width: calc(100% - 45px);
-        order: 2;
     }
     
     .expand-icon {
-        font-size: 1.3rem;
-        order: 3;
-        width: 30px;
-        align-self: center;
-    }
-    
-    .event-description {
-        font-size: 0.95rem;
-        line-height: 1.5;
-        padding: 0 18px;
-    }
-    
-    .schedule li.expanded .event-description {
-        max-height: 400px;
-        padding: 16px 18px;
-    }
-    
-    .temporary-info {
-        font-size: 1.1rem;
-        text-align: center;
-        padding: 20px 10px;
-    }
-    
-    /* Адаптация футера */
-    .site-footer {
-        padding: 25px 1rem 90px;
-    }
-    
-    .footer-links {
-        gap: 20px;
-        flex-direction: column;
-    }
-    
-    .footer-info {
-        gap: 5px;
-    }
-    
-    .gradient-btn {
-        width: 85%;
-        font-size: 1.2rem;
-        padding: 16px 20px;
-        letter-spacing: 1.5px;
-    }
-}
-
-/* iPhone 14/15/16/17 Pro и подобные (390px ширина) */
-@media (max-width: 430px) {
-    .main-content {
-        padding: 1rem 0.8rem 2rem;
-    }
-    
-    .small-logo {
-        height: 40px;
-    }
-    
-    .header h1 {
-        font-size: 1.1rem;
-    }
-    
-    .tabs-row {
-        flex-direction: column;
-        gap: 10px;
-        width: 100%;
-    }
-    
-    .tab-btn {
-        width: 100%;
-        min-width: auto;
-        font-size: 0.9rem;
-        padding: 14px 10px;
-        min-height: 60px;
-    }
-    
-    .panel-item {
-        padding: 1.2rem 1rem;
-    }
-    
-    .carousel-container {
-        gap: 8px;
-        min-height: 240px;
-    }
-    
-    .carousel-item {
-        height: 180px;
-    }
-    
-    .carousel-item.active {
-        height: 180px;
-    }
-    
-    .carousel-item:not(.active) {
-        height: 120px;
-    }
-    
-    .teacher-name {
-        font-size: 1.3rem;
-    }
-    
-    .teacher-role {
-        font-size: 1rem;
-    }
-    
-    .teacher-bio {
-        font-size: 0.9rem;
+        align-self: flex-end;
+        margin-top: -30px;
     }
     
     .place-venue {
-        font-size: 1.1rem;
-        padding-left: 32px;
+        font-size: 1.2rem;
     }
     
-    /* Адаптация блока стоимости */
-    .price-info h3 {
-        font-size: 1.3rem;
+    .metro-badge {
+        margin-left: 28px;
+        padding: 5px 14px 5px 10px;
     }
     
     .price-item {
@@ -1195,174 +892,96 @@ h1, h2, h3, h4 {
         gap: 5px;
     }
     
-    .price-badge {
-        font-size: 0.9rem;
+    .site-footer {
+        padding: 25px 1rem 90px;
+    }
+}
+
+@media (max-width: 480px) {
+    .carousel-container {
+        height: 23vh;
+    }
+
+    .carousel-item {
+        height: 20vh;
     }
     
-    .price-name {
-        font-size: 1rem;
+    .carousel-item.active {
+        height: 20vh;
     }
     
-    .price-value {
-        font-size: 1.3rem;
+    .carousel-item:not(.active) {
+        height: 15vh;
     }
     
-    .team h3 {
-        font-size: 1.3rem;
+    .carousel-container {
+        min-height: 200px;
+        gap: 8px;
     }
     
-    .team ul {
+    .place-venue {
         font-size: 1.1rem;
-    }
-    
-    .team li {
-        font-size: 1rem;
-        padding: 8px 0 8px 25px;
-    }
-    
-    .schedule h3 {
-        font-size: 1.3rem;
-    }
-    
-    .schedule-card {
-        padding: 14px 16px;
     }
     
     .time {
         font-size: 1.1rem;
-        padding-left: 22px;
     }
     
     .event-title {
         font-size: 1rem;
     }
     
-    .event-description {
-        font-size: 0.9rem;
-        padding: 0 16px;
-    }
-    
-    .schedule li.expanded .event-description {
-        max-height: 450px;
-        padding: 14px 16px;
+    .gradient-btn-link {
+        width: 90%;
     }
     
     .gradient-btn {
         font-size: 1.1rem;
         padding: 14px 18px;
-        width: 90%;
+    }
+}
+
+@media (max-width: 430px) {
+    .gradient-btn-link {
+        width: 92%;
     }
     
-    /* Адаптация футера */
-    .site-footer {
-        padding: 20px 0.8rem 80px;
+    .price-info h3 {
+        font-size: 1.3rem;
     }
     
     .footer-link {
         font-size: 0.9rem;
     }
     
-    .footer-copyright,
     .footer-ip,
     .footer-inn {
         font-size: 0.8rem;
     }
-    
-    .footer-telegram {
-        padding: 6px 16px;
-    }
-    
-    .footer-telegram-text {
-        font-size: 0.8rem;
-    }
 }
 
-/* iPhone Pro Max и большие Android (430px ширина) */
-@media (min-width: 431px) and (max-width: 480px) {
-    .main-content {
-        padding: 1.2rem 1rem 2rem;
+@media (max-width: 420px) {
+    .tab-btn {
+        min-width: 100%;
     }
     
-    .carousel-item {
-        height: 200px;
-    }
-    
-    .carousel-item.active {
-        height: 200px;
-    }
-    
-    .carousel-item:not(.active) {
-        height: 135px;
-    }
-    
-    .teacher-name {
-        font-size: 1.4rem;
-    }
-    
-    .gradient-btn {
-        width: 88%;
-        font-size: 1.15rem;
-    }
-}
-
-/* Очень маленькие устройства (до 360px) */
-@media (max-width: 360px) {
-    .main-content {
-        padding: 0.8rem 0.6rem 2rem;
-    }
-    
-    .small-logo {
-        height: 35px;
-    }
-    
-    .header h1 {
-        font-size: 1rem;
+    .tabs-row {
+        flex-direction: column;
     }
     
     .carousel-container {
         gap: 5px;
-        min-height: 200px;
     }
-    
-    .carousel-item {
-        height: 150px;
-    }
-    
-    .carousel-item.active {
-        height: 150px;
-    }
-    
-    .carousel-item:not(.active) {
-        height: 100px;
-    }
-    
-    .teacher-name {
-        font-size: 1.2rem;
-    }
-    
-    .teacher-role {
-        font-size: 0.9rem;
-    }
-    
-    .teacher-bio {
-        font-size: 0.85rem;
-    }
-    
-    .place-venue {
+}
+
+@media (max-width: 360px) {
+    .gradient-btn {
         font-size: 1rem;
-        padding-left: 28px;
-    }
-    
-    .place-venue::before {
-        font-size: 1.3rem;
-    }
-    
-    .price-info h3 {
-        font-size: 1.2rem;
+        padding: 12px 16px;
     }
     
     .price-badge {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
         padding: 3px 10px;
     }
     
@@ -1372,102 +991,5 @@ h1, h2, h3, h4 {
     
     .price-value {
         font-size: 1.2rem;
-    }
-    
-    .price-note {
-        font-size: 0.8rem;
-    }
-    
-    .team h3 {
-        font-size: 1.2rem;
-    }
-    
-    .team li {
-        font-size: 0.9rem;
-    }
-    
-    .schedule h3 {
-        font-size: 1.2rem;
-    }
-    
-    .time {
-        font-size: 1rem;
-    }
-    
-    .event-title {
-        font-size: 0.9rem;
-    }
-    
-    .event-description {
-        font-size: 0.85rem;
-        padding: 0 14px;
-    }
-    
-    .schedule li.expanded .event-description {
-        max-height: 500px;
-        padding: 12px 14px;
-    }
-    
-    .gradient-btn {
-        font-size: 1rem;
-        padding: 12px 16px;
-    }
-    
-    .footer-link {
-        font-size: 0.8rem;
-    }
-    
-    .footer-copyright,
-    .footer-ip,
-    .footer-inn {
-        font-size: 0.7rem;
-    }
-}
-
-/* Горизонтальная ориентация на мобильных */
-@media (max-height: 500px) and (orientation: landscape) {
-    .main-content {
-        padding: 0.8rem 0.8rem 2rem;
-    }
-    
-    .carousel-container {
-        min-height: 200px;
-    }
-    
-    .carousel-item {
-        height: 150px;
-    }
-    
-    .carousel-item.active {
-        height: 150px;
-    }
-    
-    .carousel-item:not(.active) {
-        height: 100px;
-    }
-    
-    .teacher-info {
-        min-height: 150px;
-    }
-    
-    .event-description {
-        max-height: 0;
-    }
-    
-    .schedule li.expanded .event-description {
-        max-height: 200px;
-    }
-    
-    .fixed-bottom-btn {
-        bottom: 15px;
-    }
-    
-    .gradient-btn {
-        padding: 12px 18px;
-        font-size: 1.1rem;
-    }
-    
-    .site-footer {
-        padding: 20px 1rem 70px;
     }
 }
