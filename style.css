@@ -409,7 +409,6 @@ h1, h2, h3, h4 {
     font-size: 1.5rem;
     line-height: 1.8;
     color: var(--text-primary);
-    
 }
 
 .team li {
@@ -427,6 +426,8 @@ h1, h2, h3, h4 {
     color: var(--color-orange);
     font-size: 1.2rem;
 }
+
+/* ========= ИСПРАВЛЕННЫЙ КОД ДЛЯ КАРТОЧЕК РАСПИСАНИЯ ========= */
 
 .schedule {
     margin-top: 30px;
@@ -484,6 +485,9 @@ h1, h2, h3, h4 {
     gap: 30px;
     padding: 20px 25px;
     width: 100%;
+    background: inherit;
+    position: relative;
+    z-index: 2;
 }
 
 .schedule li.expanded .schedule-card {
@@ -528,10 +532,11 @@ h1, h2, h3, h4 {
     font-size: 1.5rem;
     color: var(--color-red);
     opacity: 0.5;
-    transition: all 0.3s ease;
+    transition: transform 0.3s ease, opacity 0.2s ease;
     width: 30px;
     text-align: center;
     flex-shrink: 0;
+    display: inline-block;
 }
 
 .schedule li:hover .expand-icon {
@@ -545,18 +550,37 @@ h1, h2, h3, h4 {
 
 .event-description {
     max-height: 0;
+    opacity: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease, padding 0.3s ease;
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                opacity 0.3s ease 0.1s,
+                padding 0.3s ease;
     background: rgba(0, 0, 0, 0.2);
     border-radius: 0 0 20px 20px;
     font-size: 1.1rem;
     line-height: 1.6;
     color: var(--text-secondary);
+    padding: 0 25px;
+    will-change: max-height, opacity;
+    transform: translateZ(0);
+    backface-visibility: hidden;
 }
 
 .schedule li.expanded .event-description {
-    max-height: 200px;
+    max-height: 300px;
+    opacity: 1;
     padding: 20px 25px;
+}
+
+/* Анимация для плавного поворота иконки */
+@keyframes rotateIcon {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(180deg); }
+}
+
+@keyframes rotateIconBack {
+    from { transform: rotate(180deg); }
+    to { transform: rotate(0deg); }
 }
 
 .fixed-bottom-btn {
@@ -809,10 +833,15 @@ h1, h2, h3, h4 {
         align-self: center;
     }
     
-    .schedule li.expanded .event-description {
-        max-height: 250px;
-        padding: 16px 18px;
+    .event-description {
         font-size: 0.95rem;
+        line-height: 1.5;
+        padding: 0 18px;
+    }
+    
+    .schedule li.expanded .event-description {
+        max-height: 400px;
+        padding: 16px 18px;
     }
     
     .temporary-info {
@@ -925,6 +954,16 @@ h1, h2, h3, h4 {
         font-size: 1rem;
     }
     
+    .event-description {
+        font-size: 0.9rem;
+        padding: 0 16px;
+    }
+    
+    .schedule li.expanded .event-description {
+        max-height: 450px;
+        padding: 14px 16px;
+    }
+    
     .gradient-btn {
         font-size: 1.1rem;
         padding: 14px 18px;
@@ -1032,6 +1071,16 @@ h1, h2, h3, h4 {
         font-size: 0.9rem;
     }
     
+    .event-description {
+        font-size: 0.85rem;
+        padding: 0 14px;
+    }
+    
+    .schedule li.expanded .event-description {
+        max-height: 500px;
+        padding: 12px 14px;
+    }
+    
     .gradient-btn {
         font-size: 1rem;
         padding: 12px 16px;
@@ -1062,6 +1111,14 @@ h1, h2, h3, h4 {
     
     .teacher-info {
         min-height: 150px;
+    }
+    
+    .event-description {
+        max-height: 0;
+    }
+    
+    .schedule li.expanded .event-description {
+        max-height: 200px;
     }
     
     .fixed-bottom-btn {
