@@ -14,7 +14,7 @@
     --bg-surface: #1a1a2e;
     --text-primary: #f0f0f0;
     --text-secondary: #c0c0c0;
-    --border-radius-btn: 40px;
+    --border-radius-btn: 30px;
     --transition: 0.3s ease;
   }
   
@@ -75,7 +75,7 @@
     flex: 1;
     display: flex;
     flex-direction: column;
-    padding: 1rem 1rem 2rem;
+    padding: 1rem 0.5rem 2rem;
     width: 100%;
     max-width: 900px;
     margin: 0 auto;
@@ -87,16 +87,16 @@
     align-items: center;
     justify-content: center;
     gap: 0.75rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 0.75rem;
     flex-wrap: wrap;
   }
   .small-logo {
-    height: 45px;
+    height: 30px;
     width: auto;
     filter: brightness(1.2) drop-shadow(0 2px 8px rgba(148, 84, 191, 0.3));
   }
   .header h1 {
-    font-size: 1.25rem;
+    font-size: 0.9rem;
     color: var(--color-soft-purple);
     text-shadow: 0 2px 10px rgba(148, 84, 191, 0.3);
   }
@@ -106,18 +106,17 @@
     display: flex;
     gap: 0.75rem;
     justify-content: center;
-    margin-bottom: 0.5rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
   }
   .tab-btn {
     flex: 1 1 200px;
     background: rgba(20, 20, 35, 0.8);
     border: 2px solid rgba(148, 84, 191, 0.3);
     border-radius: var(--border-radius-btn);
-    padding: 0.75rem 1rem;
+    padding: 0.5rem 0.6rem;
     font-family: "Unbounded", sans-serif;
     font-weight: 500;
-    font-size: 0.85rem;
+    font-size: 0.65rem;
     line-height: 1.3;
     text-align: center;
     cursor: pointer;
@@ -125,7 +124,7 @@
     color: var(--text-secondary);
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.3);
-    min-height: 4rem;
+    min-height: 3rem;
   }
   .tab-btn.active {
     color: var(--text-primary);
@@ -143,14 +142,14 @@
     transform: translateY(-2px);
   }
   .date {
-    font-size: 1rem;
+    font-size: 0.75rem;
   }
   
   /* Слайдер панелей */
   .content-slider {
     width: 100%;
-    margin: 1rem 0 2rem;
-    border-radius: 2rem;
+    margin: 0.5rem 0 2rem;
+    border-radius: 1rem;
     border: 2px solid transparent;
     background: linear-gradient(var(--bg-card), var(--bg-card)) padding-box,
                 linear-gradient(135deg, var(--color-deep-purple), var(--color-red), 
@@ -165,25 +164,24 @@
   .panel-item {
     flex: 0 0 100%;
     width: 100%;
-    padding: 1.5rem;
+    padding: 0.5rem 1rem 1rem 1rem;
     background: rgba(0, 0, 0, 0.2);
   }
   
   /* Карусель */
   .teachers-carousel {
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
   .carousel-container {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1rem;
-    height: 400px;           /* фиксированная высота для десктопа */
-    margin-bottom: 2rem;      /* отступ после карусели */
+    height: 50vh;           /* фиксированная высота для десктопа */ 
   }
   
   .carousel-item {
-    height: 200px;          /* высота неактивных */
+    height: 70%;          /* высота неактивных */
     width: auto;             /* ширина подстраивается под пропорции фото */
     border-radius: 10px;
     overflow: hidden;
@@ -205,7 +203,7 @@
     filter: grayscale(40%);
   }
   .carousel-item.active {
-    height: 250px;           /* активная выше */
+    height: 85%;           /* активная выше */
     opacity: 1;
     filter: grayscale(0);
     border-color: var(--color-soft-purple);
@@ -276,29 +274,29 @@
     left: 0;
     width: 40px;
     height: 3px;
-    background: linear-gradient(90deg, var(--color-soft-purple), var(--color-red));
+    background: linear-gradient(90deg, var(--color-orange), var(--color-red));
     border-radius: 4px;
   }
   .place-venue {
     color: var(--color-soft-purple);
   }
   .price-title {
-    color: var(--color-red);
+    color: var(--color-soft-purple);
   }
   .price-title::after {
-    background: linear-gradient(90deg, var(--color-red), var(--color-orange));
+    background: linear-gradient(90deg, var(--color-orange), var(--color-red));
   }
   .schedule .section-title {
-    color: var(--color-red);
+    color: var(--color-soft-purple);
   }
   .schedule .section-title::after {
-    background: linear-gradient(90deg, var(--color-red), var(--color-orange));
+    background: linear-gradient(90deg, var(--color-orange), var(--color-red))
   }
   .team .section-title {
     color: var(--color-orange);
   }
   .team .section-title::after {
-    background: linear-gradient(90deg, var(--color-orange), var(--color-red));
+    background: linear-gradient(90deg, var(--color-orange), var(--color-red))
   }
   
   /* Место проведения */
@@ -477,6 +475,144 @@
     color: var(--color-red);
   }
   
+/* ===== Панель баттлов: красные/оранжевые акценты ===== */
+#panel2 .section-title {
+  color: var(--color-orange);
+}
+#panel2 .section-title::after {
+  background: linear-gradient(90deg, var(--color-orange), var(--color-red));
+}
+
+/* Номинации */
+.nominations-list {
+  list-style: none;
+  padding: 0;
+}
+.nominations-list li {
+  padding: 0.6rem 0 0.6rem 1.8rem;
+  border-bottom: 1px dashed rgba(242, 68, 29, 0.2);
+  position: relative;
+  font-size: 1rem;
+  color: var(--text-primary);
+}
+.nominations-list li::before {
+  content: '⚡';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--color-orange);
+}
+
+/* Судьи */
+.judges-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+.judge-card {
+  background: linear-gradient(145deg, rgba(30,30,46,0.8), rgba(20,20,35,0.9));
+  border: 1px solid rgba(242, 68, 29, 0.2);
+  border-radius: 20px;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  transition: all var(--transition);
+}
+.judge-card:hover {
+  border-color: var(--color-orange);
+  box-shadow: 0 10px 25px rgba(242, 68, 29, 0.2);
+}
+.judge-photo {
+  width: 80px;
+  height: 80px;
+  border-radius: 25%;
+  object-fit: cover;
+  border: 3px solid transparent;
+  background: #0a0a14;
+  transition: border-color var(--transition);
+}
+.judge-card:hover .judge-photo {
+  border-color: var(--color-orange);
+}
+.judge-info {
+  flex: 1;
+}
+.judge-name {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-orange);
+  margin-bottom: 0.2rem;
+  font-family: "Unbounded", sans-serif;
+}
+.judge-categories {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  margin-bottom: 0.5rem;
+  line-height: 1.3;
+}
+.judge-social {
+  display: inline-block;
+  font-size: 0.8rem;
+  color: var(--color-soft-purple);
+  text-decoration: none;
+  border-bottom: 1px dashed rgba(148,84,191,0.3);
+  transition: color var(--transition);
+}
+.judge-social:hover {
+  color: var(--color-orange);
+  border-bottom-color: var(--color-orange);
+}
+
+/* Стоимость (дополнения к существующему .price-info) */
+.battle-price {
+  margin-top: 1rem;
+}
+.price-deadline {
+  font-family: "Unbounded", sans-serif;
+  font-size: 0.9rem;
+  color: var(--color-red);
+  background: rgba(217,30,65,0.1);
+  padding: 0.25rem 1rem;
+  border-radius: 50px;
+  display: inline-block;
+  margin: 0.5rem 0 1rem;
+  border: 1px solid rgba(217,30,65,0.3);
+}
+.price-category {
+  font-weight: 600;
+  color: var(--color-orange);
+  width: 100%;
+  margin-bottom: 0.5rem;
+  font-family: "Unbounded", sans-serif;
+  font-size: 0.9rem;
+}
+.price-detail {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.25rem 0;
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  border-bottom: 1px dashed rgba(242,68,29,0.1);
+}
+.price-detail:last-child {
+  border-bottom: none;
+}
+.price-note.small {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  font-style: italic;
+  margin-top: 0.25rem;
+}
+.price-item {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+}
+
   /* Номинации (баттлы) */
   .team ul {
     list-style: none;
@@ -627,6 +763,8 @@
     100% { background-position: 0% 50%; }
   }
   
+
+  
   /* ========== АДАПТИВ ========== */
   @media (min-width: 480px) {
     .main-content {
@@ -636,10 +774,10 @@
         height: 320px;
       }
     .carousel-item {
-      height: 220px;
+      height: 200px;
     }
     .carousel-item.active {
-      height: 300px;
+      height: 275px;
     }
     .teacher-name {
       font-size: 1.5rem;
@@ -702,13 +840,13 @@
   /* Мобильные корректировки */
   @media (max-width: 480px) {
     .carousel-container {
-      height: 260px;
+      height: 30vh;
     }
     .carousel-item {
-      height: 150px;        /* поменьше на мобильных */
+      height: 125px;        /* поменьше на мобильных */
     }
     .carousel-item.active {
-      height: 200px;
+      height: 175px;
     }
     .schedule-card {
       padding: 0.4rem 0.6rem;
@@ -730,10 +868,33 @@
       align-self: flex-end;
       margin-top: -1.2rem;
     }
+
+    .price-badge {
+      font-size: 0.55rem;
+    }
     .price-value {
-      font-size: 1.1rem;
+      font-size: 0.65rem;
     }
     .price-name {
+      font-size: 0.55rem;
+    }
+
+    .judges-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    .judge-card {
+      padding: 0.75rem;
+    }
+    .judge-photo {
+      width: 70px;
+      height: 70px;
+    }
+    .judge-name {
       font-size: 1rem;
     }
+    .judge-categories {
+      font-size: 0.7rem;
+    }
+  
   }
