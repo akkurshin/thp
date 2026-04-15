@@ -302,6 +302,8 @@
   /* Место проведения */
   .place-section {
     margin-bottom: 2rem;
+    display: flex;
+    flex-direction: column;
   }
   .place-details {
     display: flex;
